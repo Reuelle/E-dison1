@@ -8,15 +8,15 @@ const CONFIG = {
   devices: [
     {
       name: "Main Light",
-      ip: "192.168.1.61",
+      ip: "34cdb07de1bc",
       channel: 0,
       id: "34cdb07de1bc" // Shelly Cloud device ID
     },
-    {
-      name: "Garage Switch",
-      ip: "192.168.1.101",
-      channel: 0,
-      id: "shellydevice789012"
-    }
-  ]
+   // {
+     // name: "Garage Switch",
+     // ip: "192.168.1.101",
+     // channel: 0,
+     // id: "shellydevice789012"
+   // }
+ ]
 };

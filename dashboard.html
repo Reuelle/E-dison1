@@ -30,25 +30,28 @@
       title.textContent = device.name;
 
       const statusLabel = document.createElement("div");
+       statusLabel.id = `status-${device.id}`;
        statusLabel.textContent = "Status: Unknown";
       statusLabel.style.marginBottom = "10px";
 
       const onBtn = document.createElement("button");
       onBtn.textContent = "ON";
       onBtn.className = "switch-btn";
-      onBtn.onclick = () => {
-        toggleShelly(device.ip, device.channel, 'on', onBtn, offBtn);
-        getShellyStatus(device.ip, device.channel, onBtn, offBtn, statusLabel);
-      };
-
-      const offBtn = document.createElement("button");
+       const offBtn = document.createElement("button");
       offBtn.textContent = "OFF";
       offBtn.className = "switch-btn";
-      offBtn.onclick = () => {
-        toggleShelly(device.ip, device.channel, 'off', onBtn, offBtn);
-        getShellyStatus(device.ip, device.channel, onBtn, offBtn, statusLabel);
-      };
-
+      onBtn.onclick = () => {
+  toggleShelly(device.ip, device.channel, 'on', onBtn, offBtn, statusLabel, device.id);
+  setTimeout(() => {
+    getShellyStatus(device.ip, device.channel, onBtn, offBtn, statusLabel, device.id);
+  }, 1000);
+};
+    offBtn.onclick = () => {
+  toggleShelly(device.ip, device.channel, 'off', onBtn, offBtn, statusLabel, device.id);
+  setTimeout(() => {
+    getShellyStatus(device.ip, device.channel, onBtn, offBtn, statusLabel, device.id);
+  }, 1000);
+};
       div.appendChild(title);
       div.appendChild(document.createElement("br"));
       div.appendChild(statusLabel);
