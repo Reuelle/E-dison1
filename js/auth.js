@@ -6,6 +6,7 @@ const users = [
   { username: "guest", password: "guest789" }
 ];
 
+// Handles login from index.html
 function loginUser(username, password) {
   const match = users.find(u => u.username === username && u.password === password);
   if (match) {
@@ -16,14 +17,16 @@ function loginUser(username, password) {
   }
 }
 
+// Clears session and redirects to login
 function logoutUser() {
   localStorage.removeItem("loggedInUser");
-  window.location.href = "login.html";
+  window.location.href = "login.html"; // or "index.html" if login is now your entry point
 }
 
+// Protects dashboard from unauthenticated access
 function checkAuth() {
   const user = localStorage.getItem("loggedInUser");
   if (!user) {
-    window.location.href = "login.html";
+    window.location.href = "login.html"; // or "index.html"
   }
 }
