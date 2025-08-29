@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="/js/auth.js"></script>
+  <script src="/js/config.js"></script>
+  <script src="/js/control.js"></script>
+</head>
+<body onload="checkAuth()">
+  <h2>Welcome, <span id="user"></span></h2>
+  <button class="logout-btn" onclick="logoutUser()">Logout</button>
+
+  <div id="weather">Loading weather...</div>
+
+  <h3>Device Control</h3>
+  <div id="deviceList"></div>
+
+  <script>
+    document.getElementById("user").textContent = localStorage.getItem("loggedInUser");
+
+    const container = document.getElementById("deviceList");
+
+    CONFIG.devices.forEach(device => {
+      const div = document.createElement("div");
+      div.className = "device-block";
+      div.setAttribute("data-ip", device.ip);
+
+      const title = document.createElement("strong");
+      title.textContent = device.name;
+
+      const statusLabel = document.createElement("div");
+      statusLabel.textContent = "Checking status...";
+      statusLabel.style.marginBottom = "10px";
+
+      const onBtn = document.createElement("button");
+      onBtn.textContent = "ON";
+      onBtn.className = "switch-btn";
+      onBtn.onclick = () => {
+        toggleShelly(device.ip, device.channel, 'on', onBtn, offBtn);
+        getShellyStatus(device.ip, device.channel, onBtn, offBtn, statusLabel);
+      };
+
+      const offBtn = document.createElement("button");
+      offBtn.textContent = "OFF";
+      offBtn.className = "switch-btn";
+      offBtn.onclick = () => {
+        toggleShelly(device.ip, device.channel, 'off', onBtn, offBtn);
+        getShellyStatus(device.ip, device.channel, onBtn, offBtn, statusLabel);
+      };
+
+      div.appendChild(title);
+      div.appendChild(document.createElement("br"));
+      div.appendChild(statusLabel);
+      div.appendChild(onBtn);
+      div.appendChild(offBtn);
+      container.appendChild(div);
+
+      // Initial status check
+      getShellyStatus(device.ip, device.channel, onBtn, offBtn, statusLabel);
+    });
+  </script>
+
+  <script src="/js/weather.js"></script>
+  <script>
+    fetchWeather();
+    setInterval(fetchWeather, 60000); // refresh every minute
+  </script>
+</body>
+</html>

@@ -1,0 +1,189 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 30px;
+  background-color: #f4f6f8;
+  color: #333;
+   display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+}
+
+h2, h3 {
+  color: #2c3e50;
+  text-align: center;
+}
+
+#user {
+  font-weight: bold;
+  color: #2980b9;
+}
+
+button {
+  font-size: 14px;
+}
+
+.device-block {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.switch-btn {
+  padding: 14px 28px;
+  font-size: 18px;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 10px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+  color: #3498db; /* Blue text */
+
+}
+
+.on {
+  background-color: #e74c3c;
+}
+
+.off {
+  background-color: #27ae60;
+}
+
+.switch-btn:hover {
+  opacity: 0.85;
+}
+.weather-block {
+  background-color: #ecf0f1;
+  padding: 15px;
+  border-left: 5px solid #3498db;
+  border-radius: 8px;
+  margin: 20px 0;
+  font-size: 16px;
+  text-align: center;
+}
+
+.weather-block img {
+  vertical-align: middle;
+  margin-right: 10px;
+}
+#weather {
+  margin: 20px 0;
+  padding: 15px;
+  background-color: #ecf0f1;
+  border-left: 5px solid #3498db;
+  font-size: 18px;
+  border-radius: 5px;
+  text-align: center;
+}
+.login-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-top: 40px;
+  margin-bottom: 0;
+}
+/* Centered login container */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f6f8;
+  margin-top: 0;
+}
+
+/* Login box styling */
+.login-box {
+  background-color: #fff;
+  padding: 30px 24px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  text-align: center;
+  width: 100%;
+  max-width: 420px;
+  margin-top: 0px;   
+}
+
+/* Header */
+.login-box h2 {
+  margin-bottom: 40px;
+  font-size: 28px;
+  color: #2c3e50;
+}
+
+/* Input fields */
+.login-box input {
+  width: 100%;
+  padding: 16px;
+  margin-bottom: 25px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+/* Login button */
+.login-box button {
+  padding: 16px 32px;
+  font-size: 18px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+/* Logout button styling */
+button.logout-btn {
+  background-color: #f39c12; /* warm orange */
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease;
+}
+
+button.logout-btn:hover {
+  background-color: #e67e22;
+}
+
+.login-box button:hover {
+  background-color: #2980b9;
+}
+@media (max-width: 480px) {
+  .login-box, .device-block {
+    padding: 30px 20px;
+    font-size: 16px;
+  }
+
+  .switch-btn {
+    padding: 12px 20px;
+    font-size: 16px;
+    width: 100%;
+    margin: 8px 0;
+  }
+
+  .login-box input {
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  .login-box button {
+    font-size: 16px;
+    padding: 12px 24px;
+  }
+
+  #weather {
+    font-size: 15px;
+  }
+}
