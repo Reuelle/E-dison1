@@ -1,18 +1,15 @@
+<script>
+  if (!localStorage.getItem("loggedInUser")) {
+    window.location.href = "login.html";
+  }
+</script>
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Smart Facility Dashboard</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script>
-    // Redirect based on login status
-    if (localStorage.getItem("loggedInUser")) {
-      window.location.href = "dashboard.html";
-    } else {
-      window.location.href = "login.html";
-    }
-  </script>
+  <meta http-equiv="refresh" content="0; url=dashboard.html" />
+  <title>Redirecting...</title>
 </head>
 <body>
-  <p>Redirecting...</p>
+  <p>If you're not redirected, <a href="dashboard.html">click here</a>.</p>
 </body>
 </html>
