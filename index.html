@@ -2,14 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Redirecting...</title>
   <script>
-    const user = localStorage.getItem("loggedInUser");
-    if (user) {
-      window.location.href = "dashboard.html";
-    } else {
-      window.location.href = "login.html";
-    }
+    document.addEventListener("DOMContentLoaded", () => {
+      const user = localStorage.getItem("loggedInUser");
+      if (user) {
+        window.location.replace("dashboard.html");
+      } else {
+        window.location.replace("login.html");
+      }
+    });
   </script>
 </head>
 <body>
