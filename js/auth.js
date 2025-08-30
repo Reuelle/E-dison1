@@ -27,3 +27,13 @@ function checkAuth() {
     window.location.href = "login.html";
   }
 }
+document.addEventListener("DOMContentLoaded", () => {
+  const loginBtn = document.getElementById("loginBtn");
+  if (loginBtn) {
+    loginBtn.addEventListener("click", () => {
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      loginUser(username, password);
+    });
+  }
+});
